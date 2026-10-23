@@ -1,0 +1,146 @@
+/* ===== Variables ===== */
+:root {
+  --rosa: #f8d7e3;
+  --rosa-medio: #f4a6c0;
+  --rosa-fuerte: #e8a0bb;
+  --crema: #fff6e8;
+  --marfil: #fffdf7;
+  --salvia: #9db89a;
+  --salvia-osc: #5f7f5c;
+  --amarillo: #f6d460;
+  --dorado: #c9a24a;
+  --texto: #4a3b40;
+  --boton-a: #c44a77;
+  --boton-b: #a83a68;
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ===== Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--rosa); }
+body { font-family: var(--serif); color: var(--texto); -webkit-tap-highlight-color: transparent; }
+h1, h2, p { margin: 0; }
+[hidden] { display: none !important; }
+.solo-lectores { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ===== Pantallas ===== */
+.pantalla {
+  position: fixed; inset: 0; overflow-x: hidden; overflow-y: auto;
+  padding: max(1.25rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right))
+           max(1.5rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
+  display: flex; flex-direction: column;
+  opacity: 0; transform: scale(.98); transition: opacity .5s ease, transform .5s ease;
+  -webkit-overflow-scrolling: touch;
+}
+.pantalla.activa { opacity: 1; transform: none; }
+#bienvenida { background: radial-gradient(circle at 50% 30%, var(--marfil), var(--rosa) 75%); }
+#carta { background: linear-gradient(160deg, #fdeaf0, var(--crema)); }
+#pastel { background: linear-gradient(180deg, var(--crema), var(--rosa)); }
+#ramo { background: linear-gradient(180deg, #fff3d6 0%, var(--rosa) 60%, #d9e8d4 100%); }
+
+.centro { margin: auto; width: 100%; max-width: 30rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.1rem; position: relative; z-index: 1; }
+
+/* ===== Textos ===== */
+.sobretitulo { font-size: 1.05rem; color: var(--salvia-osc); font-style: italic; }
+h1 { font-size: clamp(2.3rem, 11vw, 3.4rem); line-height: 1.1; color: #9c3562; font-weight: 700; }
+.subtitulo { font-size: 1.15rem; line-height: 1.5; max-width: 22rem; }
+.mensaje { font-size: 1.3rem; line-height: 1.5; font-style: italic; max-width: 22rem; }
+
+/* ===== Botones ===== */
+.boton {
+  font: 600 1.1rem/1.3 var(--sans); color: #fff; border: 0; cursor: pointer;
+  min-height: 3.4rem; padding: .9rem 1.6rem; border-radius: 2rem;
+  background: linear-gradient(135deg, var(--boton-a), var(--boton-b));
+  box-shadow: 0 6px 18px rgba(168, 58, 104, .3), inset 0 0 0 1px rgba(255, 255, 255, .25);
+  transition: transform .2s ease, box-shadow .2s ease; touch-action: manipulation;
+}
+.boton.grande { font-size: 1.2rem; padding: 1.1rem 1.7rem; margin-top: .6rem; }
+.boton:active { transform: scale(.96); }
+.volver {
+  font: 500 1rem var(--sans); color: var(--salvia-osc); background: none; border: 0;
+  min-height: 2.75rem; padding: .5rem 1rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+}
+button:focus-visible { outline: 3px solid var(--dorado); outline-offset: 3px; }
+.acciones { display: flex; flex-direction: column; align-items: center; gap: .4rem; margin-top: .6rem; }
+
+/* ===== Globos y adornos ===== */
+.globos { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.globo {
+  position: absolute; left: var(--x); bottom: -90px; width: 46px; height: 58px; background: var(--c);
+  border-radius: 50% 50% 48% 48%; box-shadow: inset -6px -8px 0 rgba(0, 0, 0, .06), inset 6px 6px 0 rgba(255, 255, 255, .35);
+  animation: subir var(--t) linear var(--d) infinite;
+}
+.globo::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1px; height: 46px; background: rgba(95, 127, 92, .55); }
+.adorno { position: absolute; left: var(--x); top: var(--y); color: var(--dorado); font-size: 1.4rem; opacity: .75; animation: titilar 3s ease-in-out var(--d) infinite; pointer-events: none; }
+.pastel-caja .adorno { color: var(--rosa-fuerte); }
+
+/* ===== Carta ===== */
+.tarjeta {
+  position: relative; margin: auto; width: 100%; max-width: 36rem; padding: 2rem 1.4rem 1.6rem;
+  background: var(--marfil); border: 1px solid #ecd9b8; border-radius: 1.4rem;
+  box-shadow: 0 10px 30px rgba(156, 53, 98, .15), inset 0 0 0 6px var(--marfil), inset 0 0 0 7px #f3e3c3;
+  font-size: 1.15rem; line-height: 1.7; text-align: center;
+}
+.tarjeta h2 { font-size: 1.8rem; line-height: 1.25; color: #9c3562; margin-bottom: 1.1rem; }
+.tarjeta p + p { margin-top: 1rem; }
+.flor-esquina { position: absolute; top: -18px; right: -10px; width: 56px; transform: rotate(15deg); }
+.versiculo {
+  margin: 1.4rem 0; padding: 1.1rem 1rem; border-radius: 1rem;
+  background: linear-gradient(135deg, #fff7d6, #fde8ef); border: 1px solid #ecd28a;
+}
+.versiculo p { font-style: italic; font-size: 1.2rem; }
+.versiculo footer { margin-top: .6rem; font: 600 .95rem var(--sans); color: var(--salvia-osc); }
+.cierre { font-size: 1.25rem; font-weight: 700; color: #9c3562; margin-top: 1.4rem !important; }
+.firma { font-style: italic; }
+
+/* ===== Pastel ===== */
+.pastel-caja { position: relative; width: 100%; max-width: 21rem; }
+.pastel-svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 10px rgba(156, 53, 98, .18)); }
+#pastel.activa .pastel-svg { animation: entrada-pastel 1s cubic-bezier(.3, 1.3, .5, 1) both; }
+
+/* ===== Ramo ===== */
+.ramo-svg { width: 100%; max-width: 21rem; max-height: 56dvh; height: auto; overflow: visible; }
+.escenario { opacity: 0; transition: opacity .8s ease; }
+.tallo { stroke: #6f9a63; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s cubic-bezier(.4, 0, .2, 1) var(--d, 0s); }
+.leaf { transform: scale(0); transition: transform .9s cubic-bezier(.34, 1.4, .5, 1) var(--d, 0s); }
+.tulip { transform: scale(0); transition: transform .9s cubic-bezier(.34, 1.3, .5, 1) var(--d, 0s); }
+.tp-l, .tp-r { transform-origin: 0 4px; transition: transform 1s ease calc(var(--d, 0s) + .5s); }
+.tp-l { transform: rotate(20deg); }
+.tp-r { transform: rotate(-20deg); }
+.sun { transform: scale(0) rotate(-50deg); transition: transform 1.1s cubic-bezier(.34, 1.3, .5, 1) var(--d, 0s); }
+.envoltorio { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s cubic-bezier(.3, 1.2, .5, 1); }
+.chispa { fill: var(--dorado); opacity: 0; }
+.dedicatoria { text-align: center; opacity: 0; transform: translateY(10px); transition: opacity 1s ease, transform 1s ease; }
+.ded-1 { font-size: 1.3rem; font-weight: 700; color: #9c3562; line-height: 1.4; }
+.ded-2 { font-size: 1.2rem; font-style: italic; margin-top: .3rem; }
+
+.s-escenario .escenario { opacity: 1; }
+.s-tallos .tallo { stroke-dashoffset: 0; }
+.s-hojas .leaf { transform: scale(1); }
+.s-tulipanes .tulip { transform: scale(1); }
+.s-tulipanes .tp-l, .s-tulipanes .tp-r { transform: rotate(0); }
+.s-girasoles .sun { transform: scale(1) rotate(0); }
+.s-conjunto .envoltorio { opacity: 1; transform: none; }
+.s-destellos .chispa { animation: titilar-svg 2.2s ease-in-out var(--d) infinite; }
+.dedicatoria.s-fin { opacity: 1; transform: none; }
+
+/* ===== Confeti ===== */
+.confeti { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 10; }
+.confeti span { position: absolute; top: -16px; left: var(--x); width: 9px; height: 15px; background: var(--c); border-radius: 2px; animation: caer var(--t) ease-in forwards; }
+
+/* ===== Animaciones ===== */
+@keyframes subir { from { transform: translateY(0); } to { transform: translateY(-125dvh); } }
+@keyframes titilar { 0%, 100% { opacity: .25; transform: scale(.85); } 50% { opacity: .85; transform: scale(1.15); } }
+@keyframes titilar-svg { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes entrada-pastel { from { opacity: 0; transform: translateY(30px) scale(.85); } to { opacity: 1; transform: none; } }
+@keyframes caer { to { transform: translate3d(var(--dx), 108dvh, 0) rotate(var(--r)); } }
+
+@media (min-width: 700px) { .tarjeta { padding: 2.5rem 3rem 2rem; } }
+@media (max-height: 560px) { .ramo-svg { max-height: 70dvh; } }
+
+/* ===== Movimiento reducido ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .2s !important; transition-delay: 0s !important; }
+  .globo { display: none; }
+}

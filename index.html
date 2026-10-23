@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8d7e3">
+<meta name="description" content="Felicitación de cumpleaños interactiva para la abuelita más linda.">
+<title>Feliz cumpleaños, abuelita 💗</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="confeti" id="confeti" aria-hidden="true"></div>
+
+<!-- ETAPA 1: BIENVENIDA -->
+<main class="pantalla activa" id="bienvenida" aria-labelledby="t-bienvenida">
+  <div class="globos" aria-hidden="true">
+    <i class="globo" style="--x:8%;--d:0s;--t:16s;--c:#f4a6c0"></i>
+    <i class="globo" style="--x:24%;--d:3s;--t:19s;--c:#f6d460"></i>
+    <i class="globo" style="--x:44%;--d:6s;--t:17s;--c:#c9ddc5"></i>
+    <i class="globo" style="--x:64%;--d:1.5s;--t:20s;--c:#f8c8d8"></i>
+    <i class="globo" style="--x:80%;--d:4.5s;--t:18s;--c:#ffe9a8"></i>
+    <i class="globo" style="--x:92%;--d:8s;--t:21s;--c:#e8a0bb"></i>
+    <span class="adorno" style="--x:15%;--y:22%;--d:0s">♥</span>
+    <span class="adorno" style="--x:82%;--y:18%;--d:1s">✦</span>
+    <span class="adorno" style="--x:72%;--y:70%;--d:2s">♥</span>
+    <span class="adorno" style="--x:10%;--y:74%;--d:1.5s">✦</span>
+  </div>
+  <div class="centro">
+    <p class="sobretitulo">Hoy es un día muy especial</p>
+    <h1 id="t-bienvenida">¡Feliz cumpleaños!</h1>
+    <p class="subtitulo">Tenemos una sorpresa preparada con mucho cariño para ti.</p>
+    <button class="boton grande" type="button" data-ir="carta" data-confeti>Feliz cumpleaños a la abuelita más linda 💗</button>
+  </div>
+</main>
+
+<!-- ETAPA 2: CARTA -->
+<section class="pantalla" id="carta" hidden aria-labelledby="t-carta">
+  <article class="tarjeta">
+    <svg class="flor-esquina" viewBox="0 0 80 80" aria-hidden="true"><g fill="#f4a6c0"><circle cx="40" cy="20" r="12"/><circle cx="60" cy="40" r="12"/><circle cx="40" cy="60" r="12"/><circle cx="20" cy="40" r="12"/></g><circle cx="40" cy="40" r="9" fill="#f6d460"/></svg>
+    <h2 id="t-carta">Para la abuelita más linda 💗</h2>
+    <p>Hoy es un día especial, una oportunidad para recordarte lo mucho que te queremos y lo importante que eres para nuestra familia.</p>
+    <p>Gracias por estar siempre ahí para nosotros, por tu cariño, por cada momento compartido y por formar parte de tantos recuerdos que guardamos en el corazón. Hay personas que hacen que una familia sea todavía más especial, y tú eres una de ellas.</p>
+    <p>Deseamos que esta nueva etapa de tu vida esté llena de momentos felices, tranquilidad, salud y muchas razones para sonreír. Que nunca te falten el cariño de quienes te rodeamos ni esos pequeños detalles que hacen bonito cada día.</p>
+    <p>También quiero compartir contigo un texto de la Biblia que nos recuerda lo valioso que es encontrar felicidad y disfrutar de las cosas buenas de la vida.</p>
+    <blockquote class="versiculo">
+      <p>“Has de Jehová tu mayor deleite y él te concederá los deseos de tu corazón”.</p>
+      <footer>Salmo 37:4 · Traducción del Nuevo Mundo</footer>
+    </blockquote>
+    <p>Abuelita, gracias por todo lo que significas para nosotros. Esperamos poder seguir compartiendo contigo muchos momentos bonitos, sonrisas, abrazos y recuerdos que nos acompañen siempre.</p>
+    <p>Que hoy recibas un poquito de todo el cariño que nos has dado.</p>
+    <p class="cierre">🌷 ¡Feliz cumpleaños a la abuelita más linda! 🌻</p>
+    <p class="firma">Con todo mi cariño. 💗</p>
+    <div class="acciones">
+      <button class="boton" type="button" data-ir="pastel">Mira un pastel 🎂</button>
+      <button class="volver" type="button" data-ir="bienvenida" aria-label="Volver a la bienvenida">‹ Volver</button>
+    </div>
+  </article>
+</section>
+
+<!-- ETAPA 3A: PASTEL -->
+<section class="pantalla" id="pastel" hidden aria-labelledby="t-pastel">
+  <div class="centro">
+    <h2 id="t-pastel" class="solo-lectores">Un pastel para ti</h2>
+    <div class="pastel-caja">
+      <span class="adorno" style="--x:6%;--y:12%;--d:0s" aria-hidden="true">♥</span>
+      <span class="adorno" style="--x:88%;--y:20%;--d:1s" aria-hidden="true">✦</span>
+      <span class="adorno" style="--x:92%;--y:70%;--d:.5s" aria-hidden="true">♥</span>
+      <svg class="pastel-svg" viewBox="0 0 300 250" role="img" aria-label="Pastel de tres niveles decorado con crema y una florecita, sin velas">
+        <ellipse cx="150" cy="228" rx="132" ry="14" fill="#e9d9cf"/>
+        <ellipse cx="150" cy="222" rx="126" ry="12" fill="#fffdf7" stroke="#e5cfc2"/>
+        <rect x="36" y="150" width="228" height="70" rx="14" fill="#f6b7cc"/>
+        <rect x="72" y="100" width="156" height="56" rx="12" fill="#fff1dc"/>
+        <rect x="104" y="58" width="92" height="46" rx="11" fill="#f6b7cc"/>
+        <g stroke-linecap="round" fill="none">
+          <line x1="48" y1="152" x2="252" y2="152" stroke="#fffaf0" stroke-width="20" stroke-dasharray="0 22"/>
+          <line x1="82" y1="102" x2="218" y2="102" stroke="#f6b7cc" stroke-width="18" stroke-dasharray="0 20"/>
+          <line x1="114" y1="60" x2="186" y2="60" stroke="#fffaf0" stroke-width="16" stroke-dasharray="0 18"/>
+          <line x1="50" y1="212" x2="250" y2="212" stroke="#d9b25c" stroke-width="7" stroke-dasharray="0 16"/>
+          <line x1="76" y1="130" x2="224" y2="130" stroke="#d9b25c" stroke-width="3"/>
+        </g>
+        <g fill="#fffdf7" font-size="15" text-anchor="middle" aria-hidden="true"><text x="90" y="190">♥</text><text x="150" y="190">♥</text><text x="210" y="190">♥</text></g>
+        <g transform="translate(150 46)" aria-hidden="true">
+          <g fill="#fffdf7" stroke="#e8a0bb" stroke-width="1"><circle cy="-7" r="6"/><circle cx="7" r="6"/><circle cy="7" r="6"/><circle cx="-7" r="6"/></g>
+          <circle r="4.5" fill="#f6d460"/>
+        </g>
+        <path d="M118 52q-12-6-16-16q12 0 16 16zM182 52q12-6 16-16q-12 0-16 16z" fill="#9db89a"/>
+      </svg>
+    </div>
+    <p class="mensaje">Sigue cumpliendo más años. Gracias por siempre estar ahí para todos nosotros. 💗</p>
+    <div class="acciones">
+      <button class="boton" type="button" data-ir="ramo">Mira un regalo 🎁</button>
+      <button class="volver" type="button" data-ir="carta" aria-label="Volver a la carta">‹ Volver</button>
+    </div>
+  </div>
+</section>
+
+<!-- ETAPA 3B: RAMO -->
+<section class="pantalla" id="ramo" hidden aria-labelledby="t-ramo">
+  <div class="centro">
+    <h2 id="t-ramo" class="solo-lectores">Un ramo de tulipanes y girasoles</h2>
+    <svg class="ramo-svg" id="ramo-svg" viewBox="0 0 300 430" role="img" aria-label="Ramo de tulipanes rosas y girasoles amarillos con hojas verdes y envoltorio rosa">
+      <g class="escenario"><ellipse cx="150" cy="408" rx="130" ry="14" fill="#c9ddc5" opacity=".7"/></g>
+      <g fill="none">
+        <path class="tallo" pathLength="1" style="--d:0s"   d="M150 355C150 280 150 180 150 125"/>
+        <path class="tallo" pathLength="1" style="--d:.15s" d="M150 355C140 300 90 250 68 215"/>
+        <path class="tallo" pathLength="1" style="--d:.3s"  d="M150 355C160 300 210 250 232 215"/>
+        <path class="tallo" pathLength="1" style="--d:.45s" d="M150 355C140 310 120 270 113 240"/>
+        <path class="tallo" pathLength="1" style="--d:.6s"  d="M150 355C160 310 180 270 187 240"/>
+        <path class="tallo" pathLength="1" style="--d:.75s" d="M150 355C150 300 150 240 150 195"/>
+      </g>
+      <g fill="#7fa774">
+        <g transform="translate(149 335) rotate(-58)"><path class="leaf" style="--d:0s" d="M0 0C-14-22-10-48 0-70C10-48 14-22 0 0Z"/></g>
+        <g transform="translate(151 330) rotate(58)"><path class="leaf" style="--d:.2s" d="M0 0C-14-22-10-48 0-70C10-48 14-22 0 0Z"/></g>
+        <g transform="translate(146 295) rotate(-32)"><path class="leaf" style="--d:.4s" d="M0 0C-12-18-9-40 0-58C9-40 12-18 0 0Z"/></g>
+        <g transform="translate(154 290) rotate(34)"><path class="leaf" style="--d:.6s" d="M0 0C-12-18-9-40 0-58C9-40 12-18 0 0Z"/></g>
+      </g>
+      <g id="tulipanes">
+        <g transform="translate(113 240)"><g class="tulip" style="--d:0s"><path d="M0 6C-14-4-12-40 0-54C12-40 14-4 0 6Z" fill="#f4a6c0"/><path class="tp-l" d="M0 4C-24 0-26-32-16-46C-8-38-2-30 0-20Z" fill="#ee8fb0"/><path class="tp-r" d="M0 4C24 0 26-32 16-46C8-38 2-30 0-20Z" fill="#e87ea4"/></g></g>
+        <g transform="translate(187 240)"><g class="tulip" style="--d:.4s"><path d="M0 6C-14-4-12-40 0-54C12-40 14-4 0 6Z" fill="#fffaf5" stroke="#f0cfd9"/><path class="tp-l" d="M0 4C-24 0-26-32-16-46C-8-38-2-30 0-20Z" fill="#fff0f2" stroke="#f0cfd9"/><path class="tp-r" d="M0 4C24 0 26-32 16-46C8-38 2-30 0-20Z" fill="#fde4ea" stroke="#f0cfd9"/></g></g>
+        <g transform="translate(150 195)"><g class="tulip" style="--d:.8s"><path d="M0 6C-14-4-12-40 0-54C12-40 14-4 0 6Z" fill="#f7b3cb"/><path class="tp-l" d="M0 4C-24 0-26-32-16-46C-8-38-2-30 0-20Z" fill="#f09ab9"/><path class="tp-r" d="M0 4C24 0 26-32 16-46C8-38 2-30 0-20Z" fill="#ea86ab"/></g></g>
+      </g>
+      <g id="girasoles">
+        <g transform="translate(68 215) scale(.85)"><g class="sun" style="--d:0s"></g></g>
+        <g transform="translate(232 215) scale(.85)"><g class="sun" style="--d:.9s"></g></g>
+        <g transform="translate(150 125)"><g class="sun" style="--d:1.8s"></g></g>
+      </g>
+      <g class="envoltorio">
+        <path d="M58 268Q150 292 242 268L182 408Q150 418 118 408Z" fill="#f8d7e3" stroke="#e8a0bb" stroke-width="1.5"/>
+        <path d="M58 268Q150 292 242 268L222 300Q150 322 78 300Z" fill="#fffdf7" opacity=".85"/>
+        <path d="M150 312l-20-12q-4 8 0 14zM150 312l20-12q4 8 0 14z" fill="#c9a24a"/>
+        <circle cx="150" cy="313" r="5" fill="#d9b25c"/>
+      </g>
+      <g id="chispas"></g>
+    </svg>
+    <div class="dedicatoria" id="dedicatoria">
+      <p class="ded-1">Con todo mi cariño, para la abuelita más linda. 🌷</p>
+      <p class="ded-2">Te queremos mucho. 💗</p>
+    </div>
+    <button class="volver" type="button" data-ir="pastel" aria-label="Volver al pastel">‹ Volver</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
